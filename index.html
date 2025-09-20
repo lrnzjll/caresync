@@ -1,10 +1,175 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		
-	</body>
+	import Head from 'next/head'
+
+	export default function Home() {
+		return (
+			<>
+				<Head>
+					<title>CareSync – Smart Independence for Seniors</title>
+					<meta name="description" content="CareSync: The all-in-one smart-care-band for seniors and their families. Health monitoring, reminders, emergency help, and family peace of mind in one simple device." />
+				</Head>
+				<main style={{ fontFamily: 'sans-serif', background: '#f8f9fa', minHeight: '100vh' }}>
+					{/* Hero Section */}
+					<section style={{
+						background: '#2857a7',
+						color: '#fff',
+						padding: '4rem 1rem',
+						textAlign: 'center'
+					}}>
+						<h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>CareSync</h1>
+						<h2 style={{ fontSize: '1.6rem', fontWeight: 400, marginBottom: '2rem' }}>
+							Restore dignity, safety, and freedom for seniors — and peace of mind for families.
+						</h2>
+						<p style={{ fontSize: '1.2rem', maxWidth: 700, margin: '0 auto' }}>
+							The all-in-one smart-care-band: vital signs tracking, medication & hydration reminders, emergency help, and family visibility. No screen. No confusion. Just independence.
+						</p>
+					</section>
+
+					{/* Problem & Solution */}
+					<section style={{
+						maxWidth: 900,
+						margin: '2rem auto',
+						display: 'flex',
+						flexWrap: 'wrap',
+						gap: '2rem',
+						justifyContent: 'center'
+					}}>
+						<div style={{
+							background: '#fff',
+							borderRadius: 10,
+							boxShadow: '0 2px 8px #0001',
+							flex: '1 1 290px',
+							padding: '2rem'
+						}}>
+							<h3 style={{ color: '#2857a7' }}>The Challenge</h3>
+							<ul>
+								<li>Many seniors struggle with medication routines, appointments, and staying independent.</li>
+								<li>Families are overwhelmed with caregiving stress.</li>
+								<li>Nursing homes are overcrowded and expensive.</li>
+							</ul>
+						</div>
+						<div style={{
+							background: '#2857a7',
+							color: '#fff',
+							borderRadius: 10,
+							boxShadow: '0 2px 8px #0001',
+							flex: '1 1 290px',
+							padding: '2rem'
+						}}>
+							<h3>Our Solution: CareSync</h3>
+							<ul>
+								<li>Tracks vital signs & location</li>
+								<li>Reminds about meds, water, blood pressure</li>
+								<li>Emergency button for instant help</li>
+								<li>100% voice-controlled — no screens, no confusion</li>
+								<li>Shared visibility for family</li>
+								<li>Affordable, seamless, dignified</li>
+							</ul>
+						</div>
+					</section>
+
+					{/* Features */}
+					<section style={{
+						maxWidth: 1100,
+						margin: '2rem auto',
+						padding: '2rem 1rem'
+					}}>
+						<h2 style={{ textAlign: 'center', color: '#2857a7', marginBottom: '2rem' }}>What Makes CareSync Unique?</h2>
+						<div style={{
+							display: 'grid',
+							gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))',
+							gap: '2rem'
+						}}>
+							<FeatureCard
+								icon="🩺"
+								title="Health Monitoring"
+								text="Continuous tracking of heart rate, blood pressure, and activity — with automatic alerts for family."
+							/>
+							<FeatureCard
+								icon="🔔"
+								title="Smart Reminders"
+								text="Gentle voice prompts for medication, hydration, and checkups – never miss a beat."
+							/>
+							<FeatureCard
+								icon="🆘"
+								title="Emergency Response"
+								text="One-press emergency button and automatic fall detection connect seniors to help instantly."
+							/>
+							<FeatureCard
+								icon="🎤"
+								title="100% Voice-Controlled"
+								text="No screens, no apps, no fiddling. Simple voice interaction guides seniors every step."
+							/>
+							<FeatureCard
+								icon="👨‍👩‍👧"
+								title="Family Peace of Mind"
+								text="Family members view updates and alerts anytime. Independence for seniors, reassurance for families."
+							/>
+							<FeatureCard
+								icon="💡"
+								title="Simple, Affordable, Tailored"
+								text="Designed for seniors. No extra apps or complex features. Just what’s needed — nothing more."
+							/>
+						</div>
+					</section>
+
+					{/* Customers */}
+					<section style={{
+						background: '#e7edf7',
+						padding: '3rem 1rem',
+						textAlign: 'center'
+					}}>
+						<h2 style={{ color: '#2857a7' }}>Who Is CareSync For?</h2>
+						<p style={{ fontSize: '1.2rem', maxWidth: 700, margin: '1rem auto 0' }}>
+							<b>Seniors</b> who need a gentle nudge to stay healthy and independent — and <b>their adult children</b> who want peace of mind without sacrificing dignity.
+						</p>
+					</section>
+
+					{/* Call to Action */}
+					<section style={{
+						textAlign: 'center',
+						padding: '3rem 1rem'
+					}}>
+						<h2 style={{ color: '#2857a7', marginBottom: '1rem' }}>Ready to restore freedom, safety, and dignity?</h2>
+						<button style={{
+							background: '#2857a7',
+							color: '#fff',
+							border: 'none',
+							borderRadius: 5,
+							padding: '1rem 2rem',
+							fontSize: '1.1rem',
+							cursor: 'pointer',
+							boxShadow: '0 2px 6px #0002'
+						}}>
+							Join the Waitlist
+						</button>
+						<p style={{ marginTop: '1rem', color: '#444' }}>
+							Be the first to know when CareSync launches.
+						</p>
+					</section>
+				</main>
+			</>
+		)
+	}
+
+	function FeatureCard({ icon, title, text }: { icon: string, title: string, text: string }) {
+		return (
+			<div style={{
+				background: '#fff',
+				borderRadius: 10,
+				padding: '1.5rem',
+				boxShadow: '0 1px 4px #0001',
+				minHeight: 220,
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'center'
+			}}>
+				<div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{icon}</div>
+				<h4 style={{ color: '#2857a7', marginBottom: '0.75rem' }}>{title}</h4>
+				<p style={{ color: '#444', fontSize: '1.05rem' }}>{text}</p>
+			</div>
+		)
+	}
 </html>
+
