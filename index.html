@@ -6,450 +6,408 @@
 	<title>CareSync | Restore Dignity, Safety & Freedom</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-	
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
-		/* --- General Styling & Variables --- */
 		:root {
-			--primary-color: #007BFF;
-			--secondary-color: #6C757D;
-			--background-color: #FFFFFF;
-			--surface-color: #F8F9FA;
-			--text-color: #343A40;
-			--light-text-color: #6c757d;
-			--white-color: #fff;
-			--border-color: #dee2e6;
-			--font-family: 'Lato', sans-serif;
+			--primary: #3C6EE8;
+			--primary-dark: #2553b8;
+			--secondary: #F5F7FB;
+			--accent: #18C7B3;
+			--danger: #F85C5C;
+			--text: #232b38;
+			--muted: #6b7a90;
+			--white: #fff;
+			--border: #e2e8f0;
+			--radius: 14px;
 		}
-
-		* {
+		html { scroll-behavior: smooth; }
+		body {
+			font-family: 'Inter', sans-serif;
+			background: var(--secondary);
+			color: var(--text);
 			margin: 0;
 			padding: 0;
-			box-sizing: border-box;
 		}
-
-		html {
-			scroll-behavior: smooth;
-		}
-
-		body {
-			font-family: var(--font-family);
-			background-color: var(--background-color);
-			color: var(--text-color);
-			line-height: 1.6;
-		}
+		* { box-sizing: border-box; }
 
 		.container {
-			max-width: 1140px;
+			max-width: 1200px;
 			margin: 0 auto;
-			padding: 0 20px;
+			padding: 0 24px;
 		}
 
-		/* --- Header & Navigation --- */
+		/* --- NAVIGATION --- */
 		.navbar {
-			background-color: var(--white-color);
-			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-			padding: 1rem 0;
+			background: var(--white);
+			border-bottom: 1px solid var(--border);
+			padding: 0.7rem 0;
 			position: sticky;
 			top: 0;
 			z-index: 1000;
 		}
-
 		.navbar .container {
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
+			justify-content: space-between;
 		}
-
 		.logo {
-			font-size: 1.8rem;
-			font-weight: 700;
-			color: var(--text-color);
-			text-decoration: none;
 			display: flex;
 			align-items: center;
+			font-weight: 700;
+			font-size: 1.4rem;
+			color: var(--primary);
+			letter-spacing: 1px;
+			text-decoration: none;
 		}
-		
-		.logo::before {
-			content: 'C';
+		.logo:before {
+			content: '';
 			display: inline-block;
-			background-color: var(--primary-color);
-			color: white;
-			width: 30px;
-			height: 30px;
-			border-radius: 50%;
-			text-align: center;
-			line-height: 30px;
-			font-size: 1.2rem;
-			margin-right: 8px;
+			width: 32px;
+			height: 32px;
+			background: url('https://raw.githubusercontent.com/lrnzjll/caresync-assets/main/logo-symbol.svg') center center/contain no-repeat;
+			margin-right: 10px;
 		}
 
 		.nav-links {
-			list-style: none;
 			display: flex;
 			gap: 2rem;
+			list-style: none;
 		}
-
 		.nav-links a {
+			color: var(--muted);
 			text-decoration: none;
-			color: var(--secondary-color);
-			font-weight: 700;
-			transition: color 0.3s ease;
+			font-weight: 500;
+			transition: color 0.2s;
 		}
-
 		.nav-links a:hover {
-			color: var(--primary-color);
+			color: var(--primary);
 		}
-
-		.nav-actions .login-btn {
-			background-color: var(--primary-color);
-			color: var(--white-color);
-			padding: 0.6rem 1.4rem;
-			border-radius: 5px;
-			text-decoration: none;
-			font-weight: 700;
-			transition: background-color 0.3s ease;
-		}
-
-		.nav-actions .login-btn:hover {
-			background-color: #0056b3;
-		}
-
-		.hamburger {
-			display: none;
-			cursor: pointer;
-		}
-
-		.hamburger span {
-			display: block;
-			width: 25px;
-			height: 3px;
-			margin: 5px 0;
-			background-color: var(--text-color);
-			transition: all 0.3s ease-in-out;
-		}
-
-		/* --- Hero Section --- */
-		.hero {
-			background: url('https://i.imgur.com/dAGD5j2.jpg') no-repeat center center/cover;
-			height: 550px;
+		.nav-actions {
 			display: flex;
 			align-items: center;
-			justify-content: flex-start;
-			color: var(--text-color);
-			position: relative;
+			gap: 1rem;
+		}
+		.login-btn {
+			background: var(--white);
+			color: var(--primary);
+			border: 1.5px solid var(--primary);
+			border-radius: 7px;
+			font-weight: 500;
+			padding: 0.45rem 1.2rem;
+			text-decoration: none;
+			transition: background 0.2s, color 0.2s, border 0.2s;
+		}
+		.login-btn:hover {
+			background: var(--primary);
+			color: var(--white);
+		}
+		.hamburger {
+			display: none;
+			flex-direction: column;
+			justify-content: center;
+			cursor: pointer;
+		}
+		.hamburger span {
+			width: 26px;
+			height: 3px;
+			background: var(--primary);
+			margin: 3px 0;
+			border-radius: 2px;
+			transition: all 0.3s;
 		}
 
+		/* --- HERO --- */
+		.hero {
+			background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+			min-height: 410px;
+			display: flex;
+			align-items: center;
+			position: relative;
+		}
+		.hero::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: rgba(60, 110, 232, 0.13);
+			z-index: 1;
+		}
 		.hero .container {
 			position: relative;
 			z-index: 2;
-			text-align: left;
-			max-width: 500px;
+			padding: 60px 0 40px 0;
 		}
-
+		.hero-content {
+			max-width: 540px;
+			background: rgba(255,255,255,0.87);
+			padding: 2.5rem 2rem 2rem 2rem;
+			border-radius: var(--radius);
+			backdrop-filter: blur(3px);
+			box-shadow: 0 4px 32px rgba(60,110,232,0.07);
+		}
 		.hero h1 {
-			font-size: 2.8rem;
+			font-size: 2.25rem;
 			font-weight: 700;
-			margin-bottom: 0.5rem;
 			line-height: 1.2;
+			margin-bottom: 0.6rem;
+			color: var(--primary-dark);
 		}
-
 		.hero p {
-			font-size: 1.5rem;
-			font-weight: 300;
+			font-size: 1.18rem;
+			color: var(--muted);
 			margin-bottom: 2rem;
-			color: var(--secondary-color);
 		}
-
-		/* --- Benefits Section --- */
-		.benefits {
-			padding: 2rem 0;
-			background-color: var(--white-color);
-			border-bottom: 1px solid var(--border-color);
-		}
-
-		.benefits .container {
-			display: flex;
-			justify-content: space-around;
-			gap: 2rem;
-			text-align: center;
-		}
-
-		.benefit-card {
-			padding: 1.5rem;
-			flex: 1;
-		}
-
-		.benefit-card .icon {
-			font-size: 2rem;
-			margin-bottom: 1rem;
-		}
-
-		.benefit-card h3 {
-			font-size: 1.2rem;
-			font-weight: 700;
-			margin-bottom: 0.5rem;
-		}
-
-		.benefit-card p {
-			color: var(--light-text-color);
-			font-size: 0.9rem;
-		}
-
-		/* --- Product Showcase Section --- */
-		.product-showcase {
-			padding: 5rem 0;
-		}
-
-		.product-showcase .container {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: auto auto;
-			align-items: center;
-			gap: 4rem 3rem;
-		}
-		
-		.product-content, .app-content {
-			padding-right: 2rem;
-		}
-		
-		.app-content {
-			padding-left: 2rem;
-			padding-right: 0;
-		}
-
-		.product-content h2, .app-content h2 {
-			font-size: 1.8rem;
-			font-weight: 700;
-			margin-bottom: 0.5rem;
-		}
-
-		.product-content h3, .app-content h3 {
-			font-size: 1.1rem;
-			font-weight: 400;
-			color: var(--secondary-color);
-			margin-bottom: 1.5rem;
-		}
-
-		.product-content p, .app-content p {
-			margin-bottom: 2rem;
-			color: var(--light-text-color);
-			font-size: 0.95rem;
-		}
-
-		.learn-more-btn {
-			color: var(--primary-color);
+		.hero .cta-btn {
+			background: var(--primary);
+			color: var(--white);
+			border: none;
+			padding: 0.75rem 2rem;
+			border-radius: 7px;
+			font-size: 1rem;
+			font-weight: 600;
 			text-decoration: none;
-			font-weight: 700;
+			box-shadow: 0 1px 8px rgba(60,110,232,0.08);
+			transition: background 0.2s;
 		}
-		.learn-more-btn:hover {
-			text-decoration: underline;
-		}
+		.hero .cta-btn:hover { background: var(--primary-dark); }
 
-		.product-image, .app-image {
-			text-align: center;
-		}
-		
-		.app-image {
-			grid-column: 1 / 2;
-			grid-row: 2 / 3;
-		}
-		.app-content {
-			grid-column: 2 / 3;
-			grid-row: 2 / 3;
-		}
-
-		.product-image img, .app-image img {
-			max-width: 100%;
-			height: auto;
-		}
-		
-		.product-image img { max-width: 80%; }
-		.app-image img { max-width: 60%; }
-
-		/* --- How It Works Section --- */
-		.how-it-works {
-			padding: 5rem 0;
-			background-color: var(--surface-color);
-			text-align: center;
-		}
-
-		.how-it-works h2 {
-			font-size: 2.2rem;
-			font-weight: 700;
-			margin-bottom: 4rem;
-		}
-
-		.how-it-works .container {
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			gap: 2rem;
-		}
-
-		.step {
-			max-width: 250px;
+		/* --- BENEFITS --- */
+		.benefits {
+			background: var(--white);
+			margin-top: -60px;
 			position: relative;
-		}
-
-		.step-number {
-			display: inline-block;
-			width: 30px;
-			height: 30px;
-			line-height: 30px;
-			border-radius: 50%;
-			background-color: var(--primary-color);
-			color: var(--white-color);
-			font-weight: 700;
-			margin-bottom: 1rem;
-		}
-
-		.step img {
-			width: 120px;
-			height: 120px;
-			object-fit: cover;
-			border-radius: 50%;
-			margin-bottom: 1rem;
-			border: 4px solid var(--white-color);
-			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-		}
-
-		.step h4 {
-			font-size: 1.1rem;
-			margin-bottom: 0.5rem;
-			font-weight: 700;
-		}
-
-		.step p {
-			color: var(--light-text-color);
-			font-size: 0.9rem;
-		}
-
-		/* --- Footer --- */
-		footer {
-			background-color: var(--white-color);
-			color: #adb5bd;
-			padding: 3rem 0;
-			border-top: 1px solid var(--border-color);
-		}
-
-		footer .container {
+			z-index: 2;
+			box-shadow: 0 2px 10px rgba(60,110,232,0.04);
+			border-radius: var(--radius);
+			max-width: 950px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 1.5rem 2rem;
 			display: flex;
 			justify-content: space-between;
-			align-items: center;
+			gap: 2rem;
 		}
-		
-		footer .logo {
-			color: var(--text-color);
+		.benefit-card {
+			flex: 1;
+			text-align: center;
+			padding: 0 0.5rem;
+		}
+		.benefit-icon {
+			font-size: 2rem;
+			color: var(--primary);
+			margin-bottom: 0.6rem;
+		}
+		.benefit-title {
+			font-weight: 600;
+			font-size: 1.1rem;
+			margin-bottom: 0.3rem;
+		}
+		.benefit-desc {
+			color: var(--muted);
+			font-size: 0.97rem;
 		}
 
+		/* --- PRODUCT SHOWCASE --- */
+		.product-showcase {
+			padding: 3.5rem 0 2.5rem 0;
+			display: flex;
+			gap: 4rem;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		.product-left {
+			flex: 1.3;
+			min-width: 320px;
+			max-width: 500px;
+		}
+		.product-title {
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin-bottom: 0.4rem;
+			color: var(--primary-dark);
+		}
+		.product-sub {
+			color: var(--muted);
+			font-size: 1.1rem;
+			margin-bottom: 1.4rem;
+		}
+		.product-desc {
+			color: var(--text);
+			font-size: 1.08rem;
+			margin-bottom: 2.2rem;
+		}
+		.learn-more-btn {
+			color: var(--primary);
+			font-weight: 600;
+			text-decoration: none;
+			border-bottom: 1.5px solid var(--primary);
+			padding-bottom: 1px;
+		}
+		.learn-more-btn:hover {
+			opacity: 0.8;
+		}
+		.product-right {
+			flex: 1;
+			min-width: 260px;
+			text-align: center;
+		}
+		.product-img {
+			max-width: 310px;
+			width: 100%;
+			border-radius: var(--radius);
+			box-shadow: 0 4px 32px rgba(60,110,232,0.08);
+			background: var(--white);
+			padding: 1.2rem;
+			margin-bottom: 1.5rem;
+		}
+		.app-img {
+			max-width: 210px;
+			width: 100%;
+			border-radius: 20px;
+			box-shadow: 0 3px 18px rgba(44,62,80,0.08);
+			background: var(--white);
+			padding: 0.9rem;
+		}
+
+		/* --- HOW IT WORKS --- */
+		.how-it-works {
+			padding: 2.8rem 0 2.5rem 0;
+			background: var(--secondary);
+		}
+		.how-title {
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--primary-dark);
+			margin-bottom: 1.9rem;
+		}
+		.how-steps {
+			display: flex;
+			justify-content: center;
+			gap: 2.5rem;
+			flex-wrap: wrap;
+		}
+		.step-card {
+			background: var(--white);
+			border-radius: var(--radius);
+			box-shadow: 0 2px 14px rgba(60,110,232,0.08);
+			padding: 1.5rem 1.2rem;
+			text-align: center;
+			flex: 1;
+			min-width: 170px;
+			max-width: 240px;
+		}
+		.step-num {
+			background: var(--primary);
+			color: var(--white);
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			line-height: 32px;
+			font-weight: 700;
+			margin-bottom: 0.6rem;
+			font-size: 1.07rem;
+		}
+		.step-img {
+			width: 90px;
+			height: 90px;
+			object-fit: cover;
+			margin-bottom: 0.7rem;
+			border-radius: 13px;
+			box-shadow: 0 1px 8px rgba(60,110,232,0.07);
+		}
+		.step-title {
+			font-weight: 600;
+			font-size: 1.08rem;
+			margin-bottom: 0.35rem;
+		}
+		.step-desc {
+			color: var(--muted);
+			font-size: 0.96rem;
+		}
+
+		/* --- FOOTER --- */
+		footer {
+			background: var(--white);
+			border-top: 1px solid var(--border);
+			padding: 2.5rem 0 2rem 0;
+			margin-top: 2rem;
+		}
+		.footer-flex {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 2rem;
+		}
 		.footer-links {
 			list-style: none;
 			display: flex;
-			gap: 1.5rem;
+			gap: 1.4rem;
+			padding: 0;
+			margin: 0;
 		}
-
 		.footer-links a {
+			color: var(--muted);
 			text-decoration: none;
-			color: var(--secondary-color);
-			font-weight: 700;
-			transition: color 0.3s ease;
+			font-weight: 500;
+			transition: color 0.2s;
 		}
-
-		.footer-links a:hover {
-			color: var(--primary-color);
+		.footer-links a:hover { color: var(--primary); }
+		.footer-cta {
+			display: flex;
+			gap: 0.7rem;
+			align-items: center;
 		}
-
-		.footer-cta .cta-button-footer {
-			background-color: var(--primary-color);
-			color: var(--white-color);
-			padding: 0.7rem 1.5rem;
-			border-radius: 5px;
+		.cta-button-footer {
+			background: var(--primary);
+			color: var(--white);
+			padding: 0.6rem 1.3rem;
+			border-radius: 7px;
 			text-decoration: none;
-			font-weight: 700;
-			margin-right: 1rem;
+			font-weight: 600;
+			transition: background 0.17s;
 		}
-
-		.footer-cta .cta-link-footer {
-			color: var(--primary-color);
-			font-weight: 700;
+		.cta-button-footer:hover { background: var(--primary-dark); }
+		.cta-link-footer {
+			color: var(--primary);
+			font-weight: 600;
 			text-decoration: none;
 		}
-		.footer-cta .cta-link-footer:hover {
-			text-decoration: underline;
-		}
+		.cta-link-footer:hover { text-decoration: underline; }
 
-		/* --- Responsive Design --- */
-		@media (max-width: 992px) {
-			.product-showcase .container {
-				grid-template-columns: 1fr;
-				text-align: center;
-				gap: 3rem;
+		/* --- RESPONSIVE --- */
+		@media (max-width: 1100px) {
+			.product-showcase {
+				flex-direction: column;
+				gap: 2.5rem;
+				align-items: flex-start;
 			}
-			.product-content, .app-content {
-				padding: 0;
-				grid-row: auto;
-				grid-column: auto;
-			}
-			 .app-image {
-				grid-row: 3;
-			}
-			.app-content {
-				grid-row: 4;
-			}
-			.product-image img, .app-image img { 
-				max-width: 50%; 
+			.product-right, .product-left {
+				max-width: 100%;
 			}
 		}
-
-		@media (max-width: 768px) {
+		@media (max-width: 900px) {
+			.benefits { flex-direction: column; gap: 1.3rem; }
+			.how-steps { flex-direction: column; align-items: center; }
+			.footer-flex { flex-direction: column; gap: 1.3rem; align-items: flex-start; }
+		}
+		@media (max-width: 700px) {
 			.nav-links, .nav-actions { display: none; }
-			.hamburger { display: block; }
-			.navbar .container { position: relative; }
-			.nav-links {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				background: var(--white-color);
-				width: 100%;
-				flex-direction: column;
-				padding: 1rem 0;
-				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.3s ease-out;
-			}
-			.nav-links.active {
-				max-height: 300px;
-				display: flex;
-			}
-			.nav-links li {
-				text-align: center;
-				padding: 0.5rem 0;
-			}
-
-			.hero { height: auto; padding: 4rem 0; }
-			.hero h1 { font-size: 2.2rem; }
-			.hero p { font-size: 1.2rem; }
-			
-			.benefits .container { flex-direction: column; }
-			.how-it-works .container { flex-direction: column; }
-
-			footer .container {
-				flex-direction: column;
-				gap: 2rem;
-				text-align: center;
-			}
-			.footer-links {
-				flex-direction: column;
-				gap: 1rem;
-			}
+			.hamburger { display: flex; }
+			.hero-content { padding: 1.3rem 1rem; }
+			.benefits { padding: 1.1rem 0.7rem; }
+			.product-showcase { padding: 2rem 0 1.2rem 0; }
+			footer { padding: 1.5rem 0 1.2rem 0; }
+		}
+		@media (max-width: 480px) {
+			.hero-content { padding: 0.7rem 0.2rem; }
+			.benefits, .product-showcase, .how-it-works { padding: 0.5rem 0; }
 		}
 	</style>
 </head>
 <body>
-
-	<!-- Header & Navigation -->
 	<header>
 		<nav class="navbar">
 			<div class="container">
@@ -463,7 +421,7 @@
 				<div class="nav-actions">
 					<a href="#" class="login-btn">Log In / Sign Up</a>
 				</div>
-				 <div class="hamburger">
+				<div class="hamburger" tabindex="0" aria-label="Open navigation" aria-expanded="false">
 					<span></span>
 					<span></span>
 					<span></span>
@@ -471,92 +429,82 @@
 			</div>
 		</nav>
 	</header>
-
 	<main>
-		<!-- Hero Section -->
+		<!-- HERO -->
 		<section class="hero">
 			<div class="container">
-				<h1>Welcome to CareSync: Smart, Seamless Living</h1>
-				<p>Restore Dignity, Safety & Freedom</p>
-			</div>
-		</section>
-
-		<!-- Key Benefits Section -->
-		<section class="benefits">
-			<div class="container">
-				<div class="benefit-card">
-					<div class="icon">❤️</div>
-					<h3>Effortless Wellness</h3>
-					<p>Medication Reminders, Vital Sign Tracking.</p>
-				</div>
-				<div class="benefit-card">
-					<div class="icon">🔗</div>
-					<h3>Always Connected</h3>
-					<p>Location Tracking, Voice Control.</p>
-				</div>
-				<div class="benefit-card">
-					<div class="icon">🛡️</div>
-					<h3>Peace of Mind</h3>
-					<p>Emergency Help, Affordable.</p>
+				<div class="hero-content">
+					<h1>Welcome to CareSync: Smart, Seamless Living</h1>
+					<p>Restore Dignity, Safety & Freedom</p>
+					<a href="#pricing" class="cta-btn">Get Started Today</a>
 				</div>
 			</div>
 		</section>
-
-		<!-- Product & App Showcase Section -->
-		<section id="product" class="product-showcase">
-			<div class="container">
-				<!-- Row 1 -->
-				<div class="product-content">
-					<h2>The CareSync Band</h2>
-					<h3>No Complexity, Just Care.</h3>
-					<p>Our screen-free, voice-controlled band is designed for ultimate simplicity. With vital tracking, reminders, and an emergency button, it's the perfect companion for maintaining independence.</p>
-					<a href="#" class="learn-more-btn">Learn More →</a>
-				</div>
-				<div class="product-image">
-					<img src="https://i.imgur.com/qLhV2w7.png" alt="CareSync Smart Band on display stand">
-				</div>
-
-				<!-- Row 2 -->
-				<div class="app-image">
-					<img src="https://i.imgur.com/kS5x87J.png" alt="CareSync Family App interface on a smartphone">
-				</div>
-				 <div class="app-content">
-					<h2>Family Station Unlocked</h2>
-					<h3>Stay connected, be reassured.</h3>
-					<p>The companion app gives family members real-time updates, location visibility, and customizable alerts, providing peace of mind from anywhere in the world.</p>
-				 </div>
+		<!-- BENEFITS -->
+		<section class="benefits container">
+			<div class="benefit-card">
+				<div class="benefit-icon">❤️</div>
+				<div class="benefit-title">Effortless Wellness</div>
+				<div class="benefit-desc">Medication & Hydration Reminders, Vital Sign Tracking.</div>
+			</div>
+			<div class="benefit-card">
+				<div class="benefit-icon">🔗</div>
+				<div class="benefit-title">Always Connected</div>
+				<div class="benefit-desc">Location Tracking, Voice Control, Family Updates.</div>
+			</div>
+			<div class="benefit-card">
+				<div class="benefit-icon">🛡️</div>
+				<div class="benefit-title">Peace of Mind</div>
+				<div class="benefit-desc">Emergency Help, Simple Setup, Affordable.</div>
 			</div>
 		</section>
-
-		<!-- How It Works Section -->
+		<!-- PRODUCT SHOWCASE -->
+		<section id="product" class="product-showcase container">
+			<div class="product-left">
+				<div class="product-title">The CareSync Band</div>
+				<div class="product-sub">Complexity, Just Care.</div>
+				<div class="product-desc">
+					Our screen-free, voice-controlled band is designed for ultimate simplicity. With vital tracking, reminders, and an emergency button, it’s the perfect companion for maintaining independence.
+				</div>
+				<a href="#" class="learn-more-btn">Learn More →</a>
+			</div>
+			<div class="product-right">
+				<img class="product-img" src="https://files.careai.app/generated/caresync-band-product-modern.png" alt="CareSync Band on stand in a modern living room">
+				<!-- Substitute with your own asset if needed; this is based on Image 1 -->
+				<img class="app-img" src="https://files.careai.app/generated/caresync-app-ui-showcase.png" alt="CareSync family app interface on smartphone">
+				<!-- Substitute with your own asset if needed; this is based on the app UI from Image 2 -->
+			</div>
+		</section>
+		<!-- HOW IT WORKS -->
 		<section id="features" class="how-it-works">
-			<h2>How It Works</h2>
 			<div class="container">
-				<div class="step">
-					<div class="step-number">1</div>
-					<img src="https://i.imgur.com/y3o33hL.png" alt="Senior wearing the CareSync band">
-					<h4>Wear It</h4>
-					<p>Comfortable and easy to wear all day, every day.</p>
-				</div>
-				<div class="step">
-					<div class="step-number">2</div>
-					 <img src="https://i.imgur.com/rMh94jS.png" alt="Illustration of the band sending alerts">
-					<h4>It Learns & Reminds</h4>
-					<p>Voice-guided reminders for meds, water, and more.</p>
-				</div>
-				<div class="step">
-					<div class="step-number">3</div>
-					 <img src="https://i.imgur.com/uT6b7P3.png" alt="Family member checking the app on their phone">
-					<h4>Stay Connected</h4>
-					<p>Family is kept in the loop through the simple app.</p>
+				<div class="how-title">How It Works</div>
+				<div class="how-steps">
+					<div class="step-card">
+						<div class="step-num">1</div>
+						<img class="step-img" src="https://files.careai.app/generated/caresync-wear-band.png" alt="Wearing the CareSync band">
+						<div class="step-title">Wear It</div>
+						<div class="step-desc">Comfortable and easy to wear all day, every day.</div>
+					</div>
+					<div class="step-card">
+						<div class="step-num">2</div>
+						<img class="step-img" src="https://files.careai.app/generated/caresync-reminders-voice.png" alt="Band giving reminders with voice">
+						<div class="step-title">It Learns & Reminds</div>
+						<div class="step-desc">Voice-guided reminders for meds, water, and more.</div>
+					</div>
+					<div class="step-card">
+						<div class="step-num">3</div>
+						<img class="step-img" src="https://files.careai.app/generated/caresync-app-family-connected.png" alt="Family member checking CareSync app">
+						<div class="step-title">Stay Connected</div>
+						<div class="step-desc">Family is kept in the loop through the simple app.</div>
+					</div>
 				</div>
 			</div>
 		</section>
 	</main>
-
-	<!-- Footer -->
+	<!-- FOOTER -->
 	<footer>
-		<div class="container">
+		<div class="container footer-flex">
 			<a href="#" class="logo">CareSync</a>
 			<ul class="footer-links">
 				<li><a href="#">About Us</a></li>
@@ -565,27 +513,31 @@
 				<li><a href="#">Privacy</a></li>
 			</ul>
 			<div class="footer-cta">
-				 <a href="#pricing" class="cta-button-footer">Get Started Today</a>
-				 <a href="#pricing" class="cta-link-footer">View Pricing Plans</a>
+				<a href="#pricing" class="cta-button-footer">Get Started Today</a>
+				<a href="#pricing" class="cta-link-footer">View Pricing Plans</a>
 			</div>
 		</div>
 	</footer>
-
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			const hamburger = document.querySelector('.hamburger');
 			const navLinks = document.querySelector('.nav-links');
+			const navActions = document.querySelector('.nav-actions');
 
 			// Toggle mobile navigation
 			hamburger.addEventListener('click', () => {
 				navLinks.classList.toggle('active');
+				navActions.classList.toggle('active');
+				const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+				hamburger.setAttribute('aria-expanded', !expanded);
 			});
 
-			// Close mobile menu when a link is clicked
 			document.querySelectorAll('.nav-links a').forEach(link => {
 				link.addEventListener('click', () => {
 					if (navLinks.classList.contains('active')) {
 						navLinks.classList.remove('active');
+						navActions.classList.remove('active');
+						hamburger.setAttribute('aria-expanded', 'false');
 					}
 				});
 			});
